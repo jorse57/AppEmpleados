@@ -1,0 +1,32 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>Agregar empleado
+                        <div *ngIf="loading"class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </h3>
+                    <span *ngIf="submitted && createEmployee.invalid" class="text-danger">Todos los campos son obligatorios</span>
+                    <form class="mt-4" [formGroup]="createEmployee" (ngSubmit)="agregateEmployee()">
+                        <div class="row">
+                            <div class="col">
+                                <input formControlName="nombre" type="text" class="form-control form-control-lg " placeholder="Nombre">
+                            </div>
+                            <div class="col">
+                                <input formControlName="apellido" type="text" class="form-control form-control-lg" placeholder="Apellido">
+                            </div>
+                        </div>
+                        <input formControlName="documento"  type="text" class="form-control form-control-lg mt-3" placeholder="Documento">
+                        <input formControlName="salario"  type="number" class="form-control form-control-lg mt-3" placeholder="Salario">
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/list-employees" style="margin-right: 5px;">Volver</button>
+                            <button type="submit" class="btn btn-dark btn-lg">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
